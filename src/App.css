@@ -1,38 +1,708 @@
-.App {
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 7px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Roboto';
+  font-style: normal;
+}
+
+.app-container {
+  height: 100vh;
+  position: relative;
+}
+
+.background-img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.main-menu {
+  color: #7E0000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  font-size: 8rem;
+}
+
+.button {
+  background-color: #7E0000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  font-size: 6rem;
+  margin-top: 4rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 5px 5px rgba(126, 0, 0, 0.3);
+}
+
+.button:hover {
+  background-color: #740101;
+}
+
+.button:active {
+  background-color: #740101;
+  box-shadow: 4px 4px 5px 5px rgba(126, 0, 0, 0.3);
+  transform: translateY(4px);
+}
+
+.main-button {
+  width: 55rem;
+  height: 13rem;
+}
+
+a {
+  text-decoration: none;
+  
+}
+
+.main-menu-title {
+  font-weight: 500;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.lobby-maker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gift-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  background-color: #7E0000;
+  color: white;
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  font-size: 7rem;
+  box-shadow: 4px 4px 5px rgba(126, 0, 0, 0.3);
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.gift-icon:hover {
+  background-color: #740101;
+}
+
+.gift-icon:active {
+  background-color: #740101;
+  box-shadow: 4px 4px 5px 5px rgba(126, 0, 0, 0.3);
+  transform: translateY(4px);
+}
+
+.input-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.input-container input:last-child {
+  margin-top: 5rem;
+}
+
+.input-container input {
+  border: 0;
+  padding-left: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  border-radius: 30px;
   color: white;
+  font-size: 4rem;
+  box-shadow: 4px 4px 5px 5px rgba(126, 0, 0, 0.3);
 }
 
-.App-link {
-  color: #61dafb;
+.input-container input:focus {
+  outline: 2px solid #7E0000;
 }
 
-@keyframes App-logo-spin {
-  from {
+.input-lobby {
+  width: 90%;
+  padding: 5rem 0;
+  background-color: #7E0000;
+}
+
+.input-participant {
+  width: 70%;
+  background-color: #7E0000;
+}
+
+.input-container input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 5rem;
+  font-weight: 400;
+  font-style: italic
+}
+
+.adding-people-container {
+  position: relative;
+  width: 50%;
+}
+
+.adding-people-container .plus {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  font-size: 10rem;
+  color: #7E0000;
+  font-weight: 500;
+  cursor: pointer;
+  text-shadow: 4px 4px 5px rgba(126, 0, 0, 0.3);
+}
+
+.plus:hover {
+  color: #740101;
+}
+
+.plus:active {
+  color: #740101;
+  text-shadow: 4px 4px 5px 5px rgba(126, 0, 0, 0.3);
+  transform: translateY(4px);
+}
+
+.participants-list-header {
+  color: #7E0000;
+  font-size: 6rem;
+  font-weight: 500;
+}
+
+.participants-list {
+  background-color: white;
+  border: 5px solid #7E0000;
+  height: 50%;
+  width: 70%;
+  color: #7E0000;
+  font-size: 3rem;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+.participants-list::-webkit-scrollbar {
+  width: 15px;
+}
+
+.participants-list::-webkit-scrollbar-thumb {
+  background-color: #7E0000;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
+}
+
+.participants-list::-webkit-scrollbar-track {
+  background-color: white;
+  -webkit-box-shadow: inset 0 0 6px rgba(126,0,0,0.5);
+}
+
+.participants-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.generate-button {
+  height: 10rem;
+  width: 30rem;
+}
+
+.single-participant {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.lobby {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.lobby-title {
+  font-size: 6rem;
+  color: #7E0000;
+  font-weight: 500;
+}
+
+.lobby-table {
+  height: 50%;
+  width: 70%;
+  background-color: white;
+  margin-top: 3rem;
+  display: flex;
+  border: 5px solid #7E0000;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.lobby-table::-webkit-scrollbar {
+  width: 10px;
+}
+
+.lobby-table::-webkit-scrollbar-thumb {
+  background-color: #7E0000;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
+}
+
+.lobby-table::-webkit-scrollbar-track {
+  background-color: white;
+  -webkit-box-shadow: inset 0 0 6px rgba(126,0,0,0.5);
+}
+
+.person-data-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-for-link {
+  background-color: #7E0000;
+  width: 80%;
+  height: 4rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  border-radius: 7px;
+}
+
+.input-for-link::-webkit-scrollbar {
+  height: 9px;
+}
+
+.input-for-link::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(126,0,0,0.5);
+}
+
+.input-for-link::-webkit-scrollbar-track {
+  background-color: #7E0000;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
+}
+
+
+.links {
+  font-size: 2rem;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.names {
+  font-size: 3.5rem;
+  color: #7E0000;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.names-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.links-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.pair-reveal {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal-first-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reveal-second-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reveal-third-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-row-text {
+  color: #7E0000;
+  font-size: 10rem;
+  margin-right: 1rem;
+}
+
+.second-row-text {
+  color: #7E0000;
+  font-size: 10rem;
+}
+.person-giving-name {
+  color: #7E0000;
+  font-style: italic;
+  font-size: 10rem;
+  margin-left: 1rem;
+}
+
+.person-receiving-name {
+  font-weight: 500;
+  font-size: 10rem;
+  color: #7E0000;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #7E0000;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #7E0000 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
+
+.error-message-container {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  background-color: #7E0000;
+  color: white;
+  height: 5rem;
+  width: 45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 30px;
+  box-shadow: 4px 4px 5px 5px rgba(126, 0, 0, 0.3);
+}
+
+.lobby-name-error-container {
+  color: #7E0000;
+  font-size: 3rem;
+  background-color: white;
+  border: 5px solid #7E0000;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60rem;
+  position: absolute;
+  left: 13%;
+  top: 28%;
+}
+
+.lobby-name-error {
+  margin-right: 5rem;
+}
+
+.error-lobby-name-animation-enter{
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.error-lobby-name-animation-enter-active{
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.error-lobby-name-animation-exit{
+  opacity: 1;
+}
+
+.error-lobby-name-animation-exit-active{
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.people-error-container {
+  color: #7E0000;
+  font-size: 3rem;
+  background-color: white;
+  border: 5px solid #7E0000;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65rem;
+  position: absolute;
+  left: 13%;
+  bottom: 28%;
+}
+
+.people-error {
+  margin-right: 5rem;
+}
+
+.error-people-animation-enter{
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.error-people-animation-enter-active{
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.error-people-animation-exit{
+  opacity: 1;
+}
+
+.error-people-animation-exit-active{
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+@media only screen and (max-width: 800px) {
+  .main-menu {
+    font-size: 6rem;
+  }
+
+  .main-button {
+    width: 50rem;
+    height: 10rem;
+  }
+
+  .button {
+    font-size: 5rem;
+  }
+
+  .participants-list-header {
+    font-size: 4rem;
+  }
+
+  .lobby-maker {
+    flex-direction: column-reverse;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+  .adding-people-container {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  }
+
+  .participants-container {
+    width: 100%;
+    height: 60%;
+  }
+
+  .adding-people-container .plus {
+    right: 20%;
+  }
+
+  .first-row-text {
+    font-size: 9rem;
+  }
+  
+  .second-row-text {
+    font-size: 9rem;
+  }
+  .person-giving-name {
+    font-size: 9rem;
+  }
+  
+  .person-receiving-name {
+    font-size: 9rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .adding-people-container {
+    height: 30%;
+  }
+
+  .participants-container {
+    height: 70%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .lobby-title {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .lobby-title {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .first-row-text {
+    font-size: 8rem;
+  }
+  
+  .second-row-text {
+    font-size: 8rem;
+  }
+  .person-giving-name {
+    font-size: 8rem;
+  }
+  
+  .person-receiving-name {
+    font-size: 8rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .first-row-text {
+    font-size: 7rem;
+  }
+  
+  .second-row-text {
+    font-size: 7rem;
+  }
+  .person-giving-name {
+    font-size: 7rem;
+  }
+  
+  .person-receiving-name {
+    font-size: 7rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .first-row-text {
+    font-size: 6rem;
+  }
+  
+  .second-row-text {
+    font-size: 6rem;
+  }
+  .person-giving-name {
+    font-size: 6rem;
+  }
+  
+  .person-receiving-name {
+    font-size: 6rem;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .first-row-text {
+    font-size: 5rem;
+  }
+  
+  .second-row-text {
+    font-size: 5rem;
+  }
+  .person-giving-name {
+    font-size: 5rem;
+  }
+  
+  .person-receiving-name {
+    font-size: 5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
