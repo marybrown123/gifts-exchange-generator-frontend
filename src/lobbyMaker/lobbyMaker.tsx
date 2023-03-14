@@ -73,7 +73,7 @@ const handleXPeopleClick = () => {
         try {
             if(!validateInput()){
                 setLoading(true);
-                const res = await axios.post(`https://gifts-exchange-generator-backend.onrender.com/lobby`, {
+                const res = await axios.post(`${process.env.BACKEND_URL}/lobby`, {
                     name: lobbyName,
                     people: people
                 })
