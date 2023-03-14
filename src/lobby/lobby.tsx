@@ -18,7 +18,7 @@ function Lobby() {
     useEffect(() => {
 
         (async () => {
-            const peopleFromDb = await axios.get<People[]>(`https://gifts-exchange-generator-backend.onrender.com/lobby/${lobbyId}`);
+            const peopleFromDb = await axios.get<People[]>(`${process.env.REACT_APP_BACKEND_URL}/lobby/${lobbyId}`);
             setPeople(peopleFromDb.data);
             console.log(peopleFromDb)
         })()
@@ -45,7 +45,7 @@ function Lobby() {
                                 </div>
                                 <div className="links-container">
                                     <div className="input-for-link">
-                                    <p className="links"> {`${process.env.REACT_APP_BACKEND_URL}/lobby/${lobbyId}/${person.hash}`} </p>
+                                    <p className="links"> {`${process.env.REACT_APP_FRONTEND_URL}/lobby/${lobbyId}/${person.hash}`} </p>
                                     </div>
                                 </div>
                             </div>
