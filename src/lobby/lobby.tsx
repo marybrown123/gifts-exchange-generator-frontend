@@ -45,7 +45,7 @@ function Lobby() {
                                 </div>
                                 <div className="links-container">
                                     <div className="input-for-link">
-                                    <p className="links"> {`${process.env.BACKEND_URL}/lobby/${lobbyId}/${person.hash}`} </p>
+                                    <p className="links"> {`${process.env.REACT_APP_BACKEND_URL}/lobby/${lobbyId}/${person.hash}`} </p>
                                     </div>
                                 </div>
                             </div>

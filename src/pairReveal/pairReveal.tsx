@@ -21,7 +21,7 @@ function PairReveal() {
     useEffect(() => {
         (async () => {
             try {
-                const pairFromDb = await axios.get<Pair>(`${process.env.FRONTEND_URL}/lobby/${lobbyId}/${hash}`);
+                const pairFromDb = await axios.get<Pair>(`${process.env.REACT_APP_FRONTEND_URL}/lobby/${lobbyId}/${hash}`);
                 setPersonGiving(pairFromDb.data.personGiving);
                 setPersonReceiving(pairFromDb.data.personReceiving);
                 console.log(encodeURIComponent(hash!));

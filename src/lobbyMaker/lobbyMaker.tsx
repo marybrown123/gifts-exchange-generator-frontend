@@ -73,7 +73,7 @@ const handleXPeopleClick = () => {
         try {
             if(!validateInput()){
                 setLoading(true);
-                const res = await axios.post(`${process.env.BACKEND_URL}/lobby`, {
+                const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/lobby`, {
                     name: lobbyName,
                     people: people
                 })
