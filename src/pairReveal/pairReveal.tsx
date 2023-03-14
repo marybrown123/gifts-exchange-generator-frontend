@@ -21,7 +21,7 @@ function PairReveal() {
     useEffect(() => {
         (async () => {
             try {
-                const pairFromDb = await axios.get<Pair>(`http://localhost:3001/lobby/${lobbyId}/${hash}`);
+                const pairFromDb = await axios.get<Pair>(`https://gifts-exchange-generator-backend.onrender.com/lobby/${lobbyId}/${hash}`);
                 setPersonGiving(pairFromDb.data.personGiving);
                 setPersonReceiving(pairFromDb.data.personReceiving);
                 console.log(encodeURIComponent(hash!));

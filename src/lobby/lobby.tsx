@@ -18,7 +18,7 @@ function Lobby() {
     useEffect(() => {
 
         (async () => {
-            const peopleFromDb = await axios.get<People[]>(`http://localhost:3001/lobby/${lobbyId}`);
+            const peopleFromDb = await axios.get<People[]>(`https://gifts-exchange-generator-backend.onrender.com/lobby/${lobbyId}`);
             setPeople(peopleFromDb.data);
             console.log(peopleFromDb)
         })()
