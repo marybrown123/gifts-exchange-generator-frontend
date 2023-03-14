@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
 import { CSSTransition } from 'react-transition-group';
 
 function LobbyMaker() {
