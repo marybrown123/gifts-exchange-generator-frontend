@@ -322,7 +322,9 @@ a {
   display: flex;
   align-items: center;
   overflow-x: scroll;
+  overflow-y: none;
   border-radius: 7px;
+  white-space: nowrap;
 }
 
 .input-for-link::-webkit-scrollbar {
