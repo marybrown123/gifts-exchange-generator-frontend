@@ -18,7 +18,8 @@ function Lobby() {
     useEffect(() => {
 
         (async () => {
-            const peopleFromDb = await axios.get<People[]>(`${process.env.REACT_APP_BACKEND_URL}/lobby/${lobbyId}`);
+            const peopleFromDb = await axios.get<People[]>(`${process.env.REACT_APP_BACKEND_URL}/lobby/${lobbyId}`, 
+            {headers: {"Access-Control-Allow-Origin": "*"}});
             setPeople(peopleFromDb.data);
             console.log(peopleFromDb)
         })()

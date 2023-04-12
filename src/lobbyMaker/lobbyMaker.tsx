@@ -76,7 +76,8 @@ const handleXPeopleClick = () => {
                 const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/lobby`, {
                     name: lobbyName,
                     people: people
-                })
+                },
+                {headers: {"Access-Control-Allow-Origin": "*"}})
                 setLoading(false);
                 navigate(`/lobby/${res.data.people[0].lobbyId}`);
             }
